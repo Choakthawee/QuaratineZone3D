@@ -40,7 +40,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1074360255325880, guid: bb3dc6915a06dcb4796c2e62d7d40669, type: 3}
       propertyPath: m_Name
-      value: SM_Chr_Press_Male_01
+      value: Character_1
       objectReference: {fileID: 0}
     - target: {fileID: 4956315352609156, guid: bb3dc6915a06dcb4796c2e62d7d40669, type: 3}
       propertyPath: m_RootOrder
@@ -150,8 +150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63326d169d616d549a36240cef7563da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  currentMoveSpeed: 0
+  walkSpeed: 3
+  walkBackSpeed: 5
+  runSpeed: 7
+  runBackSpeed: 5
   dir: {x: 0, y: 0, z: 0}
+  hzInput: 0
+  vInput: 0
   groundYOffset: 0
   groundMask:
     serializedVersion: 2
