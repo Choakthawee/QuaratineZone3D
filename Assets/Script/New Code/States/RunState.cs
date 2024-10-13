@@ -13,11 +13,14 @@ public class RunState : MovementBaseState
     {
         if (Input.GetKeyUp(KeyCode.LeftShift)) ExitState(movement, movement.Walk);
         else if (movement.dir.magnitude < 0.1f) ;
+
+        if (movement.vInput < 0) movement.currentMoveSpeed = movement.runBackSpeed;
+        else movement.currentMoveSpeed = movement.runSpeed;
     }
 
     void ExitState(MovementStateManager movement, MovementBaseState state)
     {
-        movement.anim.SetBool("Walking", false);
+        movement.anim.SetBool("Running", false);
         movement.SwitchState(state);
     }
 }
