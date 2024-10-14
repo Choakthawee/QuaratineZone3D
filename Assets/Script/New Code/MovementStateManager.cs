@@ -32,7 +32,6 @@ public class MovementStateManager : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false;
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
         SwitchState(Idle);
@@ -68,7 +67,7 @@ public class MovementStateManager : MonoBehaviour
     bool IsGrounded()
     {
         spherePos = new Vector3(transform.position.x, transform.position.y - groundYOffset, transform.position.z);
-        if (Physics.CheckSphere(spherePos, controller.radius - 0.05f,groundMask)) return true;
+        if (Physics.CheckSphere(spherePos, controller.radius - 0.05f, groundMask)) return true;
         return false;
     }
 
@@ -76,6 +75,8 @@ public class MovementStateManager : MonoBehaviour
     {
         if (!IsGrounded()) velocity.y += gravity * Time.deltaTime;
         else if (velocity.y < 0) velocity.y = -2;
+
+        controller.Move(velocity * Time.deltaTime);
     }
 
     private void OnDrawGizmos()
